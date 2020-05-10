@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-04-29 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-05-10 - Guillaume Wang - My macros to write quick and dirty latex]
 
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
 %\usepackage[utf8]{inputenc}
@@ -45,6 +45,9 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ind}{\mathbbm{1}}
 
 \newcommand{\AAA}{\mathcal{A}}
 \newcommand{\BBB}{\mathcal{B}}
@@ -318,11 +321,136 @@
 \newcommand{\tYYY}{\widetilde{\YYY}}
 \newcommand{\tZZZ}{\widetilde{\ZZZ}}
 
-\newcommand{\ttheta}{\tilde{\theta}}
-\newcommand{\trho}{\tilde{\rho}}
-\newcommand{\tphi}{\tilde{\phi}}
+\newcommand{\ba}{\bm{a}}
+\newcommand{\bb}{\bm{b}}
+\newcommand{\bc}{\bm{c}}
+\newcommand{\bd}{\bm{d}}
+\newcommand{\be}{\bm{e}}
+%\newcommand{\bf}{\bm{f}}
+\newcommand{\bg}{\bm{g}}
+\newcommand{\bh}{\bm{h}}
+\newcommand{\bi}{\bm{i}}
+\newcommand{\bj}{\bm{j}}
+\newcommand{\bk}{\bm{k}}
+\newcommand{\bl}{\bm{l}}
+%\newcommand{\bm}{\bm{m}}
+\newcommand{\bn}{\bm{n}}
+\newcommand{\bo}{\bm{o}}
+\newcommand{\bp}{\bm{p}}
+\newcommand{\bq}{\bm{q}}
+\newcommand{\br}{\bm{r}}
+\newcommand{\bs}{\bm{s}}
+\newcommand{\bt}{\bm{t}}
+\newcommand{\bu}{\bm{u}}
+\newcommand{\bv}{\bm{v}}
+\newcommand{\bw}{\bm{w}}
+\newcommand{\bx}{\bm{x}}
+\newcommand{\by}{\bm{y}}
+\newcommand{\bz}{\bm{z}}
 
-\newcommand{\eps}{\varepsilon}
-\newcommand{\ind}{\mathbbm{1}}
+\newcommand{\bA}{\bm{A}}
+\newcommand{\bB}{\bm{B}}
+\newcommand{\bC}{\bm{C}}
+\newcommand{\bD}{\bm{D}}
+\newcommand{\bE}{\bm{E}}
+\newcommand{\bF}{\bm{F}}
+\newcommand{\bG}{\bm{G}}
+\newcommand{\bH}{\bm{H}}
+\newcommand{\bI}{\bm{I}}
+\newcommand{\bJ}{\bm{J}}
+\newcommand{\bK}{\bm{K}}
+\newcommand{\bL}{\bm{L}}
+\newcommand{\bM}{\bm{M}}
+\newcommand{\bN}{\bm{N}}
+\newcommand{\bO}{\bm{O}}
+\newcommand{\bP}{\bm{P}}
+\newcommand{\bQ}{\bm{Q}}
+\newcommand{\bR}{\bm{R}}
+\newcommand{\bS}{\bm{S}}
+\newcommand{\bT}{\bm{T}}
+\newcommand{\bU}{\bm{U}}
+\newcommand{\bV}{\bm{V}}
+\newcommand{\bW}{\bm{W}}
+\newcommand{\bX}{\bm{X}}
+\newcommand{\bY}{\bm{Y}}
+\newcommand{\bZ}{\bm{Z}}
+
+\newcommand{\talpha}{\tilde{\alpha}}
+\newcommand{\tbeta}{\tilde{\beta}}
+\newcommand{\tgamma}{\tilde{\gamma}}
+\newcommand{\tdelta}{\tilde{\delta}}
+\newcommand{\tepsilon}{\tilde{\epsilon}}
+\newcommand{\teps}{\tilde{\eps}}
+% zeta
+\newcommand{\teta}{\tilde{\eta}}
+\newcommand{\ttheta}{\tilde{\theta}}
+% iota
+\newcommand{\tkappa}{\tilde{\kappa}}
+\newcommand{\tlambda}{\tilde{\lambda}}
+\newcommand{\tmu}{\tilde{\mu}}
+\newcommand{\tnu}{\tilde{\nu}}
+% omicron
+\newcommand{\tpi}{\tilde{\pi}}
+\newcommand{\trho}{\tilde{\rho}}
+\newcommand{\tsigma}{\tilde{\sigma}}
+\newcommand{\ttau}{\tilde{\tau}}
+% upsilon
+\newcommand{\tphi}{\tilde{\phi}}
+\newcommand{\tvarphi}{\tilde{\varphi}}
+\newcommand{\tchi}{\tilde{\chi}}
+\newcommand{\tpsi}{\tilde{\psi}}
+\newcommand{\tomega}{\tilde{\omega}}
+
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\hgamma}{\hat{\gamma}}
+\newcommand{\hdelta}{\hat{\delta}}
+\newcommand{\hepsilon}{\hat{\epsilon}}
+\newcommand{\heps}{\hat{\eps}}
+% zeta
+\newcommand{\heta}{\hat{\eta}}
+\newcommand{\htheta}{\hat{\theta}}
+% iota
+\newcommand{\hkappa}{\hat{\kappa}}
+\newcommand{\hlambda}{\hat{\lambda}}
+\newcommand{\hmu}{\hat{\mu}}
+\newcommand{\hnu}{\hat{\nu}}
+% omicron
+\newcommand{\hpi}{\hat{\pi}}
+\newcommand{\hrho}{\hat{\rho}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\htau}{\hat{\tau}}
+% upsilon
+\newcommand{\hphi}{\hat{\phi}}
+\newcommand{\hvarphi}{\hat{\varphi}}
+\newcommand{\hchi}{\hat{\chi}}
+\newcommand{\hpsi}{\hat{\psi}}
+\newcommand{\homega}{\hat{\omega}}
+
+\newcommand{\balpha}{\bm{\alpha}}
+\newcommand{\bbeta}{\bm{\beta}}
+\newcommand{\bgamma}{\bm{\gamma}}
+\newcommand{\bdelta}{\bm{\delta}}
+\newcommand{\bepsilon}{\bm{\epsilon}}
+\newcommand{\beps}{\bm{\eps}}
+% zeta
+% \newcommand{\beta}{\bm{\eta}}
+\newcommand{\btheta}{\bm{\theta}}
+% iota
+\newcommand{\bkappa}{\bm{\kappa}}
+\newcommand{\blambda}{\bm{\lambda}}
+\newcommand{\bmu}{\bm{\mu}}
+\newcommand{\bnu}{\bm{\nu}}
+% omicron
+\newcommand{\bpi}{\bm{\pi}}
+\newcommand{\brho}{\bm{\rho}}
+\newcommand{\bsigma}{\bm{\sigma}}
+\newcommand{\btau}{\bm{\tau}}
+% upsilon
+\newcommand{\bphi}{\bm{\phi}}
+\newcommand{\bvarphi}{\bm{\varphi}}
+\newcommand{\bchi}{\bm{\chi}}
+\newcommand{\bpsi}{\bm{\psi}}
+\newcommand{\bomega}{\bm{\omega}}
 
 \endinput
