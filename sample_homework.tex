@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[margin=3cm,includeheadfoot]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[french]{babel}
+
+%\usepackage{graphicx}
+%\usepackage{subcaption}
+%\graphicspath{ {./images/} }
+\usepackage{url}
+\usepackage[bookmarks]{hyperref}
+\usepackage{enumitem}
+
+\usepackage{mylivemacros}
+\usepackage[ruled,vlined]{algorithm2e}
+
+% https://tex.stackexchange.com/questions/74529/sections-indexed-with-numbers-subsections-with-letters
+% https://tex.stackexchange.com/questions/36609/formatting-section-titles
+% https://tex.stackexchange.com/questions/283523/trouble-understanding-titlelabel-thesection-thesubsection-thetitle
+\usepackage{titlesec}
+\titlelabel{Assignment \thesubsection}
+%\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\numberwithin{equation}{subsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Assignment or Homework \#}
+%\author{Guillaume \textsc{Wang} \\ \small{Student ID: **-***-***}}
+\author{Student ID: **-***-***}
+\date{May 31, 2020}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+	\textit{Template based on my answers for Special Assignments 1 and 2 of ODS FS2020.}
+\end{center}
+
+We start by showing some claims that will be reused in several assignments.
+
+\begin{claim} \label{claim:dummy_claim}
+	claim
+\end{claim}
+
+\begin{proof}
+	proof
+\end{proof}
+
+\begin{claim} 
+	claim
+\end{claim}
+
+\begin{proof}
+	proof
+\end{proof}
+
+We will also allow ourselves to use the following standard property of Gaussian distributions.
+\begin{fact}
+	Let $M, m \in \NN$ and $g \sim \NNN(0, \Sigma)$ for any positive semi-definite matrix $\Sigma \in \RR^{m \times m}$, and let any matrix $A \in \RR^{M \times m}$ independent from $g$.
+	Then $A g \sim \NNN(0, A \Sigma A^T)$.
+\end{fact}
+
+\begin{proof}
+    By known properties of Gaussian distributions, $A g$ is Gaussian and
+    \begin{equation}
+        \EE A g = A \EE g = 0
+    \end{equation}
+    \begin{align}
+        \EE (A g) (A g)^T &= \EE A g g^T A^T \\
+        &= A \left( \EE g g^T \right) A^T \\
+        &= A \Sigma A^T
+    \end{align}
+    by linearity of expectation. So $A g \sim \NNN(0, A \Sigma A^T)$.
+\end{proof}
+
+As a special case, we have a classic "isotropy" result:
+\begin{fact}
+	Let $m \in \NN$ and $g \sim \NNN(0, \sigma^2 I_m)$ for some $\sigma > 0$, and let $u \in \RR^m$ be a vector independent from $g$. Then $\langle g, u \rangle = u^T g \sim \NNN(0, \sigma^2 \|u\|^2)$.
+\end{fact}
+
+
+
+\section*{First part of the homework}
+
+\subsection{}
+My answer to the question
+
+By Claim \ref{claim:dummy_claim}, ...
+
+\subsection{}
+We consider the following algorithm, where $N$ is to be specified and $\kappa = 2 \sqrt{2}$.
+
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\caption{Repeated Accelerated Gradient Descent}\label{algo:repeated_AGD}
+	Start with $x_0$ s.t $\|x_0 - x^*\| \leq R$ \\
+	\For{$k=0...N-1$}{
+		run AGD for $T = \kappa \sqrt{\frac{L}{\mu}}$ iterations starting at $x_k$ \\
+		let $x_{k+1}$ the result
+	}
+	\textbf{return} $x_N$
+\end{algorithm}
+
+We now prove that for $N \geq \log_2 \frac{\mu R^2}{2 \eps}$, $x_N$ is an $\eps$-optimal solution.
+
+Indeed, according to the previous question, in Algorithm \ref{algo:repeated_AGD}...
+
+\subsection{}
+My answer to the question
+
+
+
+\section*{Second part of the homework}
+
+\subsection{}
+My answer to the question
+
+\subsection{}
+My answer to the question
+
+
+
+\end{document}

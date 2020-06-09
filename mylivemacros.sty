@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-05-10 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-06-09 - Guillaume Wang - My macros to write quick and dirty latex]
 
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
 %\usepackage[utf8]{inputenc}
@@ -15,23 +15,22 @@
 %\usepackage[bookmarks]{hyperref}
 %\usepackage{enumitem}
 
-\RequirePackage{mathtools}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
 \RequirePackage{amsthm}
-\RequirePackage{bbm}
-\RequirePackage{bm}
-
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem*{definition*}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem*{lemma*}{Lemma}
 \newtheorem{claim}{Claim}
 \newtheorem*{claim*}{Claim}
-\newtheorem{proposition}{Proposition}
+\newtheorem{fact}{Fact}
+\newtheorem*{fact*}{Fact}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem*{remark*}{Remark}
@@ -39,6 +38,12 @@
 %\numberwithin{remark}{section}
 %\numberwithin{claim}{section}
 %\numberwithin{equation}{section}
+
+\RequirePackage{mathtools}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{bbm}
+\RequirePackage{bm}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -48,6 +53,8 @@
 
 \newcommand{\eps}{\varepsilon}
 \newcommand{\ind}{\mathbbm{1}}
+\newcommand{\muchgt}{>\!\!>}
+\newcommand{\muchlt}{<\!\!<}
 
 \newcommand{\AAA}{\mathcal{A}}
 \newcommand{\BBB}{\mathcal{B}}
