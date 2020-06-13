@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-06-09 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-06-13 - Guillaume Wang - My macros to write quick and dirty latex]
 
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
 %\usepackage[utf8]{inputenc}
@@ -50,6 +50,12 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+% \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+% \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+% spectral norm. https://tex.stackexchange.com/a/54392
+\newcommand{\spnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 
 \newcommand{\eps}{\varepsilon}
 \newcommand{\ind}{\mathbbm{1}}
