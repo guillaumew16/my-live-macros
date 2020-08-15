@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-06-14 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-08-15 - Guillaume Wang - My macros to write quick and dirty latex]
 
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
 %\usepackage[utf8]{inputenc}
@@ -16,7 +16,13 @@
 %\usepackage{enumitem}
 
 \RequirePackage[dvipsnames]{xcolor}
-\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\RequirePackage{xifthen}
+%\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\TODO}[1]{
+    \ifthenelse{\isempty{#1}}
+    {\textcolor{red}{TODO}}
+    {\textcolor{red}{TODO: #1}}
+}
 
 \RequirePackage{amsthm}
 \theoremstyle{definition}
