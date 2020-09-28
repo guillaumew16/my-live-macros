@@ -1,6 +1,7 @@
 \ProvidesPackage{mylivemacros}
-    [2020-09-03 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-09-28 - Guillaume Wang - My macros to write quick and dirty latex]
 
+% ==============================
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
 %\usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
@@ -15,6 +16,7 @@
 %\usepackage[bookmarks]{hyperref}
 %\usepackage{enumitem}
 
+% ==============================
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{xifthen}
 %\newcommand{\TODO}[1]{\textcolor{red}{TODO: #1}}
@@ -24,13 +26,7 @@
     {\textcolor{red}{TODO: #1}}
 }
 
-\newcommand{\subjto}{\text{~~s.t~~}}
-\newcommand{\cst}{\text{cst}}
-\newcommand{\KLdiv}{D}
-% \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
-\newcommand{\indep}{\perp\!\!\!\!\perp}
-
-
+% ==============================
 \RequirePackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
@@ -40,9 +36,6 @@
 \newtheorem{fact}{Fact}
 \newtheorem*{fact*}{Fact}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{proposition*}{Proposition}
@@ -51,10 +44,28 @@
 \newtheorem{remark}{Remark}
 \newtheorem*{remark*}{Remark}
 
+% ==============================
+\RequirePackage{aliascnt}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}  \newcommand*{\lemmaautorefname}{Lemma}
+
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition} \newcommand*{\propositionautorefname}{Proposition}
+
+\newcommand*{\remarkautorefname}{Remark}
+\newcommand*{\claimautorefname}{Claim}
+\newcommand*{\factautorefname}{Fact}
+
 %\numberwithin{remark}{section}
 %\numberwithin{claim}{section}
 %\numberwithin{equation}{section}
 
+% ==============================
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -72,12 +83,18 @@
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 % spectral norm. https://tex.stackexchange.com/a/54392
 \newcommand{\spnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
-
 \newcommand{\eps}{\varepsilon}
 \newcommand{\ind}{\mathbbm{1}}
-\newcommand{\muchgt}{>\!\!>}
+\newcommand{\subjto}{\text{~~s.t~~}}
+\newcommand{\cst}{\text{cst}}
+\newcommand{\KLdiv}{D}
+% \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
+\newcommand{\indep}{\perp\!\!\!\!\perp}
+
+\newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
 \newcommand{\muchlt}{<\!\!<}
 
+% ==============================
 \newcommand{\AAA}{\mathcal{A}}
 \newcommand{\BBB}{\mathcal{B}}
 \newcommand{\CCC}{\mathcal{C}}
@@ -404,6 +421,7 @@
 \newcommand{\bY}{\bm{Y}}
 \newcommand{\bZ}{\bm{Z}}
 
+% ==============================
 \newcommand{\talpha}{\tilde{\alpha}}
 \newcommand{\tbeta}{\tilde{\beta}}
 \newcommand{\tgamma}{\tilde{\gamma}}
