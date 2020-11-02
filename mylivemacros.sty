@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-09-28 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2020-11-02 - Guillaume Wang - My macros to write quick and dirty latex]
 
 % ==============================
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
@@ -16,6 +16,8 @@
 %\usepackage[bookmarks]{hyperref}
 %\usepackage{enumitem}
 
+% \newcommand\fnsurl[1]{{\footnotesize\url{#1}}}
+
 % ==============================
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{xifthen}
@@ -25,6 +27,7 @@
     {\textcolor{red}{TODO}}
     {\textcolor{red}{TODO: #1}}
 }
+% \renewcommand{\TODO}[1]{}
 
 % ==============================
 \RequirePackage{amsthm}
@@ -45,17 +48,21 @@
 \newtheorem*{remark*}{Remark}
 
 % ==============================
+% https://mirror.easyname.at/ctan/macros/latex/contrib/hyperref/doc/manual.html#x1-140004
+% `hyperref` package manual section "4 Additional user macros" paragraph "\autoref{label}"
 \RequirePackage{aliascnt}
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 
 \newaliascnt{lemma}{theorem}
 \newtheorem{lemma}[lemma]{Lemma}
-\aliascntresetthe{lemma}  \newcommand*{\lemmaautorefname}{Lemma}
+\aliascntresetthe{lemma} 
+\newcommand*{\lemmaautorefname}{Lemma}
 
 \newaliascnt{proposition}{theorem}
 \newtheorem{proposition}[proposition]{Proposition}
-\aliascntresetthe{proposition} \newcommand*{\propositionautorefname}{Proposition}
+\aliascntresetthe{proposition} 
+\newcommand*{\propositionautorefname}{Proposition}
 
 \newcommand*{\remarkautorefname}{Remark}
 \newcommand*{\claimautorefname}{Claim}
@@ -74,6 +81,8 @@
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -83,12 +92,16 @@
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 % spectral norm. https://tex.stackexchange.com/a/54392
 \newcommand{\spnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\innerprod}[2]{\left\langle #1, #2 \right\rangle}
+% function restriction
+\newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}}
+\newcommand{\KLdiv}{D}
+% \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
+
 \newcommand{\eps}{\varepsilon}
 \newcommand{\ind}{\mathbbm{1}}
 \newcommand{\subjto}{\text{~~s.t~~}}
 \newcommand{\cst}{\text{cst}}
-\newcommand{\KLdiv}{D}
-% \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
 \newcommand{\indep}{\perp\!\!\!\!\perp}
 
 \newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
@@ -171,6 +184,7 @@
 \newcommand{\hr}{\hat{r}}
 \newcommand{\hs}{\hat{s}}
 %\newcommand{\ht}{\hat{t}}
+\newcommand{\hatt}{\hat{t}}
 \newcommand{\hu}{\hat{u}}
 \newcommand{\hv}{\hat{v}}
 \newcommand{\hw}{\hat{w}}
@@ -363,20 +377,20 @@
 \newcommand{\tUUU}{\widetilde{\UUU}}
 \newcommand{\tVVV}{\widetilde{\VVV}}
 \newcommand{\tWWW}{\widetilde{\WWW}}
-\newcommand{\tXXX}{\widetilde{\XXX}}
-\newcommand{\tYYY}{\widetilde{\YYY}}
+\newcommand{\tXXX}{{\widetilde{\XXX}}}
+\newcommand{\tYYY}{{\widetilde{\YYY}}}
 \newcommand{\tZZZ}{\widetilde{\ZZZ}}
 
-\newcommand{\ba}{\bm{a}}
-\newcommand{\bb}{\bm{b}}
+\newcommand{\ba}{{\bm{a}}}
+\newcommand{\bb}{{\bm{b}}}
 \newcommand{\bc}{\bm{c}}
 \newcommand{\bd}{\bm{d}}
 \newcommand{\be}{\bm{e}}
 %\newcommand{\bf}{\bm{f}}
 \newcommand{\bg}{\bm{g}}
 \newcommand{\bh}{\bm{h}}
-\newcommand{\bi}{\bm{i}}
-\newcommand{\bj}{\bm{j}}
+\newcommand{\bi}{{\bm{i}}}
+\newcommand{\bj}{{\bm{j}}}
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bl}{\bm{l}}
 %\newcommand{\bm}{\bm{m}}
@@ -420,6 +434,142 @@
 \newcommand{\bX}{\bm{X}}
 \newcommand{\bY}{\bm{Y}}
 \newcommand{\bZ}{\bm{Z}}
+
+\newcommand{\ola}{\overline{a}}
+\newcommand{\olb}{\overline{b}}
+\newcommand{\olc}{\overline{c}}
+\newcommand{\old}{\overline{d}}
+\newcommand{\ole}{\overline{e}}
+\newcommand{\olf}{\overline{f}}
+\newcommand{\olg}{\overline{g}}
+\newcommand{\olh}{\overline{h}}
+\newcommand{\oli}{{\overline{i}}}
+\newcommand{\olj}{{\overline{j}}}
+\newcommand{\olk}{{\overline{k}}}
+\newcommand{\oll}{\overline{l}}
+\newcommand{\olm}{\overline{m}}
+\newcommand{\oln}{\overline{n}}
+\newcommand{\olo}{\overline{o}}
+\newcommand{\olp}{\overline{p}}
+\newcommand{\olq}{\overline{q}}
+\newcommand{\olr}{\overline{r}}
+\newcommand{\ols}{\overline{s}}
+\newcommand{\olt}{\overline{t}}
+\newcommand{\olu}{\overline{u}}
+\newcommand{\olv}{\overline{v}}
+\newcommand{\olw}{\overline{w}}
+\newcommand{\olx}{\overline{x}}
+\newcommand{\oly}{\overline{y}}
+\newcommand{\olz}{\overline{z}}
+
+\newcommand{\olA}{\overline{A}}
+\newcommand{\olB}{\overline{B}}
+\newcommand{\olC}{\overline{C}}
+\newcommand{\olD}{\overline{D}}
+\newcommand{\olE}{\overline{E}}
+\newcommand{\olF}{\overline{F}}
+\newcommand{\olG}{\overline{G}}
+\newcommand{\olH}{\overline{H}}
+\newcommand{\olI}{\overline{I}}
+\newcommand{\olJ}{\overline{J}}
+\newcommand{\olK}{\overline{K}}
+\newcommand{\olL}{\overline{L}}
+\newcommand{\olM}{\overline{M}}
+\newcommand{\olN}{\overline{N}}
+\newcommand{\olO}{\overline{O}}
+\newcommand{\olP}{\overline{P}}
+\newcommand{\olQ}{\overline{Q}}
+\newcommand{\olR}{\overline{R}}
+\newcommand{\olS}{\overline{S}}
+\newcommand{\olT}{\overline{T}}
+\newcommand{\olU}{\overline{U}}
+\newcommand{\olV}{\overline{V}}
+\newcommand{\olW}{\overline{W}}
+\newcommand{\olX}{\overline{X}}
+\newcommand{\olY}{\overline{Y}}
+\newcommand{\olZ}{\overline{Z}}
+
+\newcommand{\ula}{\underline{a}}
+\newcommand{\ulb}{\underline{b}}
+\newcommand{\ulc}{\underline{c}}
+\newcommand{\uld}{\underline{d}}
+\newcommand{\ule}{\underline{e}}
+\newcommand{\ulf}{\underline{f}}
+\newcommand{\ulg}{\underline{g}}
+\newcommand{\ulh}{\underline{h}}
+\newcommand{\uli}{{\underline{i}}}
+\newcommand{\ulj}{{\underline{j}}}
+\newcommand{\ulk}{{\underline{k}}}
+\newcommand{\ull}{\underline{l}}
+\newcommand{\ulm}{\underline{m}}
+\newcommand{\uln}{\underline{n}}
+\newcommand{\ulo}{\underline{o}}
+\newcommand{\ulp}{\underline{p}}
+\newcommand{\ulq}{\underline{q}}
+\newcommand{\ulr}{\underline{r}}
+\newcommand{\uls}{\underline{s}}
+\newcommand{\ult}{\underline{t}}
+\newcommand{\ulu}{\underline{u}}
+\newcommand{\ulv}{\underline{v}}
+\newcommand{\ulw}{\underline{w}}
+\newcommand{\ulx}{\underline{x}}
+\newcommand{\uly}{\underline{y}}
+\newcommand{\ulz}{\underline{z}}
+
+\newcommand{\ulA}{\underline{A}}
+\newcommand{\ulB}{\underline{B}}
+\newcommand{\ulC}{\underline{C}}
+\newcommand{\ulD}{\underline{D}}
+\newcommand{\ulE}{\underline{E}}
+\newcommand{\ulF}{\underline{F}}
+\newcommand{\ulG}{\underline{G}}
+\newcommand{\ulH}{\underline{H}}
+\newcommand{\ulI}{\underline{I}}
+\newcommand{\ulJ}{\underline{J}}
+\newcommand{\ulK}{\underline{K}}
+\newcommand{\ulL}{\underline{L}}
+\newcommand{\ulM}{\underline{M}}
+\newcommand{\ulN}{\underline{N}}
+\newcommand{\ulO}{\underline{O}}
+\newcommand{\ulP}{\underline{P}}
+\newcommand{\ulQ}{\underline{Q}}
+\newcommand{\ulR}{\underline{R}}
+\newcommand{\ulS}{\underline{S}}
+\newcommand{\ulT}{\underline{T}}
+\newcommand{\ulU}{\underline{U}}
+\newcommand{\ulV}{\underline{V}}
+\newcommand{\ulW}{\underline{W}}
+\newcommand{\ulX}{\underline{X}}
+\newcommand{\ulY}{\underline{Y}}
+\newcommand{\ulZ}{\underline{Z}}
+
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
 
 % ==============================
 \newcommand{\talpha}{\tilde{\alpha}}
