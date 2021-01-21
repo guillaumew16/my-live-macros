@@ -1,5 +1,5 @@
 \ProvidesPackage{mylivemacros}
-    [2020-11-02 - Guillaume Wang - My macros to write quick and dirty latex]
+    [2021-01-21 - Guillaume Wang - My macros to write quick and dirty latex]
 
 % ==============================
 %\usepackage[margin=3cm,includeheadfoot]{geometry}
@@ -27,7 +27,8 @@
     {\textcolor{red}{TODO}}
     {\textcolor{red}{TODO: #1}}
 }
-% \renewcommand{\TODO}[1]{}
+% \renewcommand{\TODO}[1]{} % hide all TODO's
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 
 % ==============================
 \RequirePackage{amsthm}
@@ -42,10 +43,13 @@
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem*{remark*}{Remark}
+\newtheorem{example}{Example}
+\newtheorem*{example*}{Example}
 
 % ==============================
 % https://mirror.easyname.at/ctan/macros/latex/contrib/hyperref/doc/manual.html#x1-140004
@@ -56,15 +60,21 @@
 
 \newaliascnt{lemma}{theorem}
 \newtheorem{lemma}[lemma]{Lemma}
-\aliascntresetthe{lemma} 
+\aliascntresetthe{lemma}
 \newcommand*{\lemmaautorefname}{Lemma}
 
 \newaliascnt{proposition}{theorem}
 \newtheorem{proposition}[proposition]{Proposition}
-\aliascntresetthe{proposition} 
+\aliascntresetthe{proposition}
 \newcommand*{\propositionautorefname}{Proposition}
 
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newcommand*{\corollaryautorefname}{corollary}
+
 \newcommand*{\remarkautorefname}{Remark}
+\newcommand*{\exampleautorefname}{Example}
 \newcommand*{\claimautorefname}{Claim}
 \newcommand*{\factautorefname}{Fact}
 
@@ -103,6 +113,7 @@
 \newcommand{\subjto}{\text{~~s.t~~}}
 \newcommand{\cst}{\text{cst}}
 \newcommand{\indep}{\perp\!\!\!\!\perp}
+\DeclareMathOperator{\sinc}{sinc}
 
 \newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
 \newcommand{\muchlt}{<\!\!<}
@@ -394,7 +405,7 @@
 \newcommand{\bk}{\bm{k}}
 \newcommand{\bl}{\bm{l}}
 %\newcommand{\bm}{\bm{m}}
-\newcommand{\bn}{\bm{n}}
+\newcommand{\bn}{{\bm{n}}}
 \newcommand{\bo}{\bm{o}}
 \newcommand{\bp}{\bm{p}}
 \newcommand{\bq}{\bm{q}}
@@ -402,14 +413,14 @@
 \newcommand{\bs}{\bm{s}}
 \newcommand{\bt}{\bm{t}}
 \newcommand{\bu}{\bm{u}}
-\newcommand{\bv}{\bm{v}}
+\newcommand{\bv}{{\bm{v}}}
 \newcommand{\bw}{\bm{w}}
 \newcommand{\bx}{\bm{x}}
 \newcommand{\by}{\bm{y}}
 \newcommand{\bz}{\bm{z}}
 
 \newcommand{\bA}{\bm{A}}
-\newcommand{\bB}{\bm{B}}
+\newcommand{\bB}{{\bm{B}}}
 \newcommand{\bC}{\bm{C}}
 \newcommand{\bD}{\bm{D}}
 \newcommand{\bE}{\bm{E}}
@@ -421,7 +432,7 @@
 \newcommand{\bK}{\bm{K}}
 \newcommand{\bL}{\bm{L}}
 \newcommand{\bM}{\bm{M}}
-\newcommand{\bN}{\bm{N}}
+\newcommand{\bN}{{\bm{N}}}
 \newcommand{\bO}{\bm{O}}
 \newcommand{\bP}{\bm{P}}
 \newcommand{\bQ}{\bm{Q}}
@@ -620,7 +631,7 @@
 \newcommand{\hsigma}{\hat{\sigma}}
 \newcommand{\htau}{\hat{\tau}}
 % upsilon
-\newcommand{\hphi}{\hat{\phi}}
+\newcommand{\hphi}{{\hat{\phi}}}
 \newcommand{\hvarphi}{\hat{\varphi}}
 \newcommand{\hchi}{\hat{\chi}}
 \newcommand{\hpsi}{\hat{\psi}}
