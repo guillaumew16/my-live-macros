@@ -1,0 +1,12 @@
+
+clean:
+	rm *.aux \
+	*.out \
+	*.synctex.gz \
+	*.log \
+	*.bbl \
+	*.blg \
+	*.bcf \
+	*.run.xml \
+	*.toc
+

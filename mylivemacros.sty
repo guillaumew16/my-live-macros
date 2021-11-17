@@ -1,112 +1,55 @@
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{mylivemacros}
-    [2021-07-28 - Guillaume Wang - My macros to write quick and dirty latex]
+	[2021/11/17 Guillaume Wang's macros to write quick and dirty latex]
+
+\newif\ifshownotes
+\shownotestrue
 
 % ==============================
-%\usepackage[margin=3cm,includeheadfoot]{geometry}
-%\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-%\usepackage{lmodern}
-%\usepackage[french]{babel}
-
-%\usepackage{graphicx}
-%\usepackage{subcaption}
-%\graphicspath{ {./images/} }
-
-%\usepackage{url}
-%\usepackage[bookmarks]{hyperref}
-%\usepackage{enumitem}
-
-% \newcommand\fnsurl[1]{{\footnotesize\url{#1}}}
-
-% ==============================
-% \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{xcolor}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\brown}[1]{\textcolor{brown}{#1}}
 
-\newcommand{\COMMENT}[1]{\blue{COMMENT: #1}}
+% collaborators' comments
+\newcommand{\kd}[1]{\ifshownotes\green{KD: #1}\else\fi}
+\newcommand{\gw}[1]{\ifshownotes\orange{GW: #1}\else\fi}
+\newcommand{\fy}[1]{\ifshownotes\brown{FY: #1}\else\fi}
+
+% lightweight alternative to package todonotes
 \RequirePackage{xifthen}
-%\newcommand{\TODO}[1]{\red{TODO: #1}}
-\newcommand{\TODO}[1]{
-    \ifthenelse{\isempty{#1}}
-    {\red{TODO}}
-    {\red{TODO: #1}}
-}
-% \renewcommand{\TODO}[1]{} % hide all TODO's
+\newcommand{\TODO}[1]{\ifshownotes%
+    \ifthenelse{\isempty{#1}}%
+    {\red{TODO}}%
+    {\red{TODO: #1}}%
+\else\fi}
+
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\ie}{\text{i.e.}}
+\newcommand{\eg}{\text{e.g.}}
+\newcommand{\aka}{\text{a.k.a.}}
+\newcommand{\WLOG}{\text{w.l.o.g.}}
 
 % ==============================
-\RequirePackage{amsthm}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem*{definition*}{Definition}
-\newtheorem{claim}{Claim}
-\newtheorem*{claim*}{Claim}
-\newtheorem{fact}{Fact}
-\newtheorem*{fact*}{Fact}
-
-\newtheorem{question}{Question}
-\newtheorem*{question*}{Question}
-
-\newtheorem*{theorem*}{Theorem}
-\newtheorem*{lemma*}{Lemma}
-\newtheorem*{proposition*}{Proposition}
-\newtheorem*{corollary*}{Corollary}
-
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}
-\newtheorem*{remark*}{Remark}
-\newtheorem{example}{Example}
-\newtheorem*{example*}{Example}
-
-% ==============================
-% https://mirror.easyname.at/ctan/macros/latex/contrib/hyperref/doc/manual.html#x1-140004
-% `hyperref` package manual section "4 Additional user macros" paragraph "\autoref{label}"
-\RequirePackage{aliascnt}
-\theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-
-\newaliascnt{lemma}{theorem}
-\newtheorem{lemma}[lemma]{Lemma}
-\aliascntresetthe{lemma}
-\newcommand*{\lemmaautorefname}{Lemma}
-
-\newaliascnt{proposition}{theorem}
-\newtheorem{proposition}[proposition]{Proposition}
-\aliascntresetthe{proposition}
-\newcommand*{\propositionautorefname}{Proposition}
-
-\newaliascnt{corollary}{theorem}
-\newtheorem{corollary}[corollary]{Corollary}
-\aliascntresetthe{corollary}
-\newcommand*{\corollaryautorefname}{corollary}
-
-\newcommand*{\remarkautorefname}{Remark}
-\newcommand*{\exampleautorefname}{Example}
-\newcommand*{\claimautorefname}{Claim}
-\newcommand*{\factautorefname}{Fact}
-
-%\numberwithin{remark}{section}
-%\numberwithin{claim}{section}
-%\numberwithin{equation}{section}
-
-% ==============================
-\RequirePackage{mathtools}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{bbm}
-\RequirePackage{bm}
+% \RequirePackage{mathtools} % incl. amsmath
+% \RequirePackage{amssymb} % incl. amsfonts
+% \RequirePackage{bbm}
+% \RequirePackage{bm}
+% \RequirePackage{xfrac}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\trace}{Tr}
-\DeclareMathOperator{\support}{supp} % support
+\DeclareMathOperator{\support}{supp}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\linspan}{span} % linear span of vectors
 \DeclareMathOperator{\dom}{dom} % domain of proper function
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\id}{id} % identity
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\sinc}{sinc}
 \DeclareMathOperator{\prox}{prox}
@@ -115,31 +58,32 @@
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-% \DeclarePairedDelimiter\abs{\lvert}{\rvert}
-% \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% \DeclarePairedDelimiter\abs{\lvert}{\rvert} % (would require using \abs* all the time)
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\card}[1]{\left\lvert #1 \right\rvert} % cardinality
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
-% spectral norm. https://tex.stackexchange.com/a/54392
-\newcommand{\spnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\spnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}} % spectral norm https://tex.stackexchange.com/a/54392
+% \newcommand{\spnorm}[1]{\norm{#1}_{\mathrm{op}}}
+
 \newcommand{\innerprod}[2]{\left\langle #1, #2 \right\rangle}
-% function restriction
-\newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}}
+\newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}} % function restriction
 \newcommand{\KLdiv}{D}
 % \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
 
+\newcommand{\half}{{\sfrac{1}{2}}}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\ind}{\mathbbm{1}}
-\newcommand{\subjto}{\text{~~s.t~~}}
-\newcommand{\cst}{\text{cst}}
+\newcommand{\subjto}{~~\text{s.t}~~}
+\newcommand{\cst}{\mathrm{cst}}
 \newcommand{\indep}{\perp\!\!\!\!\perp}
 \newcommand{\bmzero}{{\bm{0}}}
 \newcommand{\bmone}{{\bm{1}}}
 \newcommand{\hotimes}{\widehat{\otimes}} % completion of tensor product space
-\newcommand{\textold}{\text{old}}
-\newcommand{\self}{\text{self}}
+\newcommand{\rmold}{{\mathrm{old}}}
+\newcommand{\self}{{\mathrm{self}}}
 
-\newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
-\newcommand{\muchlt}{<\!\!<}
+% \newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
+% \newcommand{\muchlt}{<\!\!<}
 
 % ==============================
 \newcommand{\AAA}{\mathcal{A}}
@@ -244,7 +188,7 @@
 \newcommand{\tp}{\tilde{p}}
 \newcommand{\tq}{\tilde{q}}
 \newcommand{\tr}{\tilde{r}}
-\newcommand{\ts}{\tilde{s}}
+\newcommand{\ts}{t_s}
 %\newcommand{\tt}{\tilde{t}}
 \newcommand{\tu}{\tilde{u}}
 \newcommand{\tv}{\tilde{v}}
@@ -487,11 +431,11 @@
 \newcommand{\olp}{\overline{p}}
 \newcommand{\olq}{\overline{q}}
 \newcommand{\olr}{\overline{r}}
-\newcommand{\ols}{\overline{s}}
+\newcommand{\ols}{{\overline{s}}}
 \newcommand{\olt}{\overline{t}}
 \newcommand{\olu}{\overline{u}}
-\newcommand{\olv}{\overline{v}}
-\newcommand{\olw}{{\overline{w}}}
+\newcommand{\olv}{{\overline{v}}}
+\newcommand{\olw}{\overline{\gamma}}
 \newcommand{\olx}{\overline{x}}
 \newcommand{\oly}{\overline{y}}
 \newcommand{\olz}{\overline{z}}
@@ -541,7 +485,7 @@
 \newcommand{\ulp}{\underline{p}}
 \newcommand{\ulq}{\underline{q}}
 \newcommand{\ulr}{\underline{r}}
-\newcommand{\uls}{\underline{s}}
+\newcommand{\uls}{{\underline{s}}}
 \newcommand{\ult}{\underline{t}}
 \newcommand{\ulu}{\underline{u}}
 \newcommand{\ulv}{\underline{v}}
@@ -686,5 +630,6 @@
 \newcommand{\bchi}{\bm{\chi}}
 \newcommand{\bpsi}{\bm{\psi}}
 \newcommand{\bomega}{\bm{\omega}}
+
 
 \endinput

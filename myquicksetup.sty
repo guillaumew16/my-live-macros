@@ -1,0 +1,76 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myquicksetup}
+    [2021/11/17 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
+
+% ==============================
+\RequirePackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{fact}{Fact}
+\newtheorem*{fact*}{Fact}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{example}{Example}
+\newtheorem*{example*}{Example}
+
+\newtheorem{question}{Question}
+\newtheorem*{question*}{Question}
+
+% ==============================
+% https://mirror.easyname.at/ctan/macros/latex/contrib/hyperref/doc/manual.html#x1-140004
+% `hyperref` package manual section "4 Additional user macros" paragraph "\autoref{label}"
+\RequirePackage{aliascnt}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+%\newtheorem{corollary}{Corollary}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem{lemma}{Lemma}
+\newaliascnt{corollary}{theorem}
+\newaliascnt{proposition}{theorem}
+\newaliascnt{lemma}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\newtheorem{proposition}[proposition]{Proposition}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{corollary}
+\aliascntresetthe{proposition}
+\aliascntresetthe{lemma}
+
+\renewcommand*{\theoremautorefname}{Thm.}
+\newcommand*{\corollaryautorefname}{Cor.}
+\newcommand*{\propositionautorefname}{Prop.}
+\newcommand*{\lemmaautorefname}{Lem.}
+\newcommand*{\claimautorefname}{Claim}
+\newcommand*{\factautorefname}{Fact}
+\newcommand*{\remarkautorefname}{Rem.}
+\newcommand*{\exampleautorefname}{Example}
+
+% \numberwithin{definition}{section}
+% \numberwithin{theorem}{section}
+% \numberwithin{corollary}{section}
+% \numberwithin{proposition}{section}
+% \numberwithin{lemma}{section}
+% \numberwithin{claim}{section}
+% \numberwithin{fact}{section}
+% \numberwithin{remark}{section}
+% \numberwithin{example}{section}
+% \numberwithin{equation}{section}
+
+% ==============================
+\RequirePackage{mathtools} % incl. amsmath
+\RequirePackage{amssymb} % incl. amsfonts
+\RequirePackage{bbm}
+\RequirePackage{bm}
+\RequirePackage{xfrac}
+
+\endinput
