@@ -5,19 +5,16 @@
 \usepackage{lmodern}
 %\usepackage[french]{babel}
 
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{references.bib}
 %\usepackage{graphicx}
 %\usepackage{subcaption}
 %\graphicspath{ {./images/} }
-\usepackage{url}
-\usepackage[bookmarks]{hyperref}
-\usepackage{enumitem}
-
-\usepackage{myquicksetup}
-\usepackage{mylivemacros}
 \usepackage[ruled,vlined]{algorithm2e}
-
-% https://tex.stackexchange.com/a/4729
-% \mathtoolsset{showonlyrefs}
+\renewcommand*{\algorithmautorefname}{Alg.}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[bookmarks]{hyperref}
 
 % https://tex.stackexchange.com/questions/74529/sections-indexed-with-numbers-subsections-with-letters
 % https://tex.stackexchange.com/questions/36609/formatting-section-titles
@@ -27,15 +24,25 @@
 %\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 
+\usepackage{myquicksetup}
 \numberwithin{equation}{subsection}
+%\mathtoolsset{showonlyrefs} % only display equation numbers for equations that are referenced to. https://tex.stackexchange.com/a/4729
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mylivemacros}
+%\shownotesfalse
+\usepackage{todonotes}
 
+%\usepackage{hw1} % project-specific macros
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Assignment or Homework \#}
+%\date{}
+%\date{\today}
+\date{May 31, 2020}
 %\author{Guillaume \textsc{Wang} \\ \small{Student ID: **-***-***}}
 \author{Student ID: **-***-***}
-\date{May 31, 2020}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \maketitle
 
@@ -80,7 +87,7 @@ We will also allow ourselves to use the following standard property of Gaussian 
     by linearity of expectation. So $A g \sim \NNN(0, A \Sigma A^T)$.
 \end{proof}
 
-As a special case, we have a classic "isotropy" result:
+As a special case, we have a classic ``isotropy'' result:
 \begin{fact}
 	Let $m \in \NN$ and $g \sim \NNN(0, \sigma^2 I_m)$ for some $\sigma > 0$, and let $u \in \RR^m$ be a vector independent from $g$. Then $\langle g, u \rangle = u^T g \sim \NNN(0, \sigma^2 \|u\|^2)$.
 \end{fact}
@@ -99,7 +106,7 @@ We consider the following algorithm, where $N$ is to be specified and $\kappa = 
 
 \begin{algorithm}[H]
 	\SetAlgoLined
-	\caption{Repeated Accelerated Gradient Descent}\label{algo:repeated_AGD}
+	\caption{Repeated Accelerated Gradient Descent} \label{algo:repeated_AGD}
 	Start with $x_0$ s.t $\|x_0 - x^*\| \leq R$ \\
 	\For{$k=0...N-1$}{
 		run AGD for $T = \kappa \sqrt{\frac{L}{\mu}}$ iterations starting at $x_k$ \\

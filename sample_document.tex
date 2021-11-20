@@ -1,30 +1,33 @@
 \documentclass{article}
-\usepackage[margin=3cm,includeheadfoot]{geometry}
+\usepackage[a4paper, margin=3cm, bottom=4cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 %\usepackage[french]{babel}
 
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{references.bib}
 %\usepackage{graphicx}
 %\usepackage{subcaption}
 %\graphicspath{ {./images/} }
-\usepackage{url}
-\usepackage[bookmarks]{hyperref}
 \usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[bookmarks]{hyperref}
 
 \usepackage{myquicksetup}
 \usepackage{mylivemacros}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Sample document}
-\author{Guillaume}
+%\date{}
 \date{\today}
+\author{Guillaume Wang}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \maketitle
 
-Template to write quick and dirty latex
+This is a simple template for writing quick and dirty latex.
 
 \TODO{a sample todo task}
 
@@ -33,23 +36,23 @@ Template to write quick and dirty latex
 $\tPP(x) \neq \tQQ(x)$
 
 \begin{equation}
-\ba \bb \bc \bd \be * \bg \bh \bi \bj \bk \bl * \bn \bo \bp \bq \br \bs \bt \bu \bv \bw \bx \by \bz
+	\ba \bb \bc \bd \be * \bg \bh \bi \bj \bk \bl * \bn \bo \bp \bq \br \bs \bt \bu \bv \bw \bx \by \bz
 \end{equation}
 
 \begin{equation}
-\bA \bB \bC \bD \bE \bF \bG \bH \bI \bJ \bK \bL \bM \bN \bO \bP \bQ \bR \bS \bT \bU \bV \bW \bX \bY \bZ
+	\bA \bB \bC \bD \bE \bF \bG \bH \bI \bJ \bK \bL \bM \bN \bO \bP \bQ \bR \bS \bT \bU \bV \bW \bX \bY \bZ
 \end{equation}
 
 \begin{equation}
-\tA \tB \tC \tD \tE \tF \tG \tH \tI \tJ \tK \tL \tM \tN \tO \tP \tQ \tR \tS \tT \tU \tV \tW \tX \tY \tZ
+	\tA \tB \tC \tD \tE \tF \tG \tH \tI \tJ \tK \tL \tM \tN \tO \tP \tQ \tR \tS \tT \tU \tV \tW \tX \tY \tZ
 \end{equation}
 
 \begin{equation}
-\hA \hB \hC \hD \hE \hF \hG \hH \hI \hJ \hK \hL \hM \hN \hO \hP \hQ \hR \hS \hT \hU \hV \hW \hX \hY \hZ
+	\hA \hB \hC \hD \hE \hF \hG \hH \hI \hJ \hK \hL \hM \hN \hO \hP \hQ \hR \hS \hT \hU \hV \hW \hX \hY \hZ
 \end{equation}
 
 \begin{equation}
-\xi \txi \hxi \bxi
+	\xi \txi \hxi \bxi
 \end{equation}
 
 \begin{gather}
@@ -86,7 +89,7 @@ Multiline equation with a single label, without anchors "\&"
     + \frac{1}{2\eta_w}\norm{W^*-W^{(0)}}^2 + \frac{1}{2\eta_v}\norm{V^*-V^{(0)}}^2
 \end{multline}
 
-Multiple equations gathered in a single block (like \texttt{align} but centered instead of right-aligned by default, an no anchors "\&" allowed)
+Multiple equations gathered in a single block (like \texttt{align} but without anchors "\&" and all lines are centered)
 \begin{gather}
     z_t = (x_t,y_t) \\
     z_{<t} = (z_0, ..., z_{t-1}) \\

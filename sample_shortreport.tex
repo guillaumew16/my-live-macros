@@ -27,7 +27,7 @@
 \usepackage[normalem]{ulem}
 \usepackage[toc,page]{appendix}
 
-\usepackage[bookmarks,
+\usepackage[bookmarks, bookmarksnumbered,
 			colorlinks=true,
             linkcolor = blue,
             urlcolor  = blue,
@@ -35,6 +35,7 @@
 \renewcommand*{\appendixautorefname}{App.}
 \renewcommand*{\sectionautorefname}{Sec.}
 \renewcommand*{\subsectionautorefname}{Subsec.}
+%\renewcommand*{\algorithmautorefname}{Alg.}
 \newcommand\fnsurl[1]{{\footnotesize\url{#1}}}
 
 \usepackage{myquicksetup}
@@ -69,10 +70,10 @@
 \begin{document}
 \maketitle
 
-\section{Introduction}
-\cite{kolmogorov_entropy_1959}
+\section{Introduction} \label{sec:intro}
+In \autoref{sec:blablabla}, toto \cite{kolmogorov_entropy_1959}. Proofs are given in \autoref{apx:proofs}.
 
-\section{Blablabla}
+\section{Blablabla} \label{sec:blablabla}
 foo foo
 
 
@@ -88,7 +89,7 @@ foo foo
 % \addcontentsline{toc}{section}{APPENDIX}
 % \addcontentsline{toc}{chapter}{APPENDIX}
 
-\section{Proofs}
+\section{Proofs} \label{apx:proofs}
 bar bar
 
 
