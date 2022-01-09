@@ -1,16 +1,26 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{myquicksetup}
-    [2021/11/17 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
+    [2022/01/09 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
 
 % ==============================
 \RequirePackage{amsthm}
+% Follow the style conventions from https://www.overleaf.com/learn/latex/Theorems_and_proofs#Reference_guide :
+%>    **definition** boldface title, Roman body. Commonly used in definitions, conditions, problems and examples.
+%>    **plain** boldface title, italicized body. Commonly used in theorems, lemmas, corollaries, propositions and conjectures.
+%>    **remark** italicized title, Roman body. Commonly used in remarks, notes, annotations, claims, cases, acknowledgments and conclusions.
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem*{definition*}{Definition}
+\newtheorem{example}{Example}
+\newtheorem*{example*}{Example}
+
+\theoremstyle{plain}
 \newtheorem{claim}{Claim}
 \newtheorem*{claim*}{Claim}
 \newtheorem{fact}{Fact}
 \newtheorem*{fact*}{Fact}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
 
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{corollary*}{Corollary}
@@ -20,9 +30,6 @@
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem*{remark*}{Remark}
-\newtheorem{example}{Example}
-\newtheorem*{example*}{Example}
-
 \newtheorem{question}{Question}
 \newtheorem*{question*}{Question}
 
@@ -30,7 +37,7 @@
 % https://mirror.easyname.at/ctan/macros/latex/contrib/hyperref/doc/manual.html#x1-140004
 % `hyperref` package manual section "4 Additional user macros" paragraph "\autoref{label}"
 \RequirePackage{aliascnt}
-\theoremstyle{definition}
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 
 %\newtheorem{corollary}{Corollary}
@@ -46,14 +53,28 @@
 \aliascntresetthe{proposition}
 \aliascntresetthe{lemma}
 
-\renewcommand*{\theoremautorefname}{Thm.}
-\newcommand*{\corollaryautorefname}{Cor.}
-\newcommand*{\propositionautorefname}{Prop.}
-\newcommand*{\lemmaautorefname}{Lem.}
+%\newcommand*{\exampleautorefname}{Example}
+%\newcommand*{\claimautorefname}{Claim}
+%\newcommand*{\factautorefname}{Fact}
+%\newcommand*{\conjectureautorefname}{Conj.}
+%\renewcommand*{\theoremautorefname}{Thm.}
+%\newcommand*{\corollaryautorefname}{Cor.}
+%\newcommand*{\propositionautorefname}{Prop.}
+%\newcommand*{\lemmaautorefname}{Lem.}
+%\newcommand*{\remarkautorefname}{Rem.}
+%\newcommand*{\questionautorefname}{Q.}
+
+\newcommand*{\definitionautorefname}{Definition}
+\newcommand*{\exampleautorefname}{Example}
 \newcommand*{\claimautorefname}{Claim}
 \newcommand*{\factautorefname}{Fact}
-\newcommand*{\remarkautorefname}{Rem.}
-\newcommand*{\exampleautorefname}{Example}
+\newcommand*{\conjectureautorefname}{Conjecture}
+\renewcommand*{\theoremautorefname}{Theorem}
+\newcommand*{\corollaryautorefname}{Corollary}
+\newcommand*{\propositionautorefname}{Proposition}
+\newcommand*{\lemmaautorefname}{Lemma}
+\newcommand*{\remarkautorefname}{Remark}
+\newcommand*{\questionautorefname}{Question}
 
 % \numberwithin{definition}{section}
 % \numberwithin{theorem}{section}
