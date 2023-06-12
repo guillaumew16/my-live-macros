@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{myquicksetup}
-    [2022/01/09 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
+    [2023/06/12 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
 
 % ==============================
 \RequirePackage{amsthm}
@@ -11,6 +11,8 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem*{definition*}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem*{assumption*}{Assumption}
 \newtheorem{example}{Example}
 \newtheorem*{example*}{Example}
 
@@ -53,6 +55,8 @@
 \aliascntresetthe{proposition}
 \aliascntresetthe{lemma}
 
+%\newcommand*{\definitionautorefname}{Def.}
+%\newcommand*{\assumptionautorefname}{Assum.}
 %\newcommand*{\exampleautorefname}{Example}
 %\newcommand*{\claimautorefname}{Claim}
 %\newcommand*{\factautorefname}{Fact}
@@ -65,6 +69,7 @@
 %\newcommand*{\questionautorefname}{Q.}
 
 \newcommand*{\definitionautorefname}{Definition}
+\newcommand*{\assumptionautorefname}{Assumption}
 \newcommand*{\exampleautorefname}{Example}
 \newcommand*{\claimautorefname}{Claim}
 \newcommand*{\factautorefname}{Fact}
@@ -87,11 +92,16 @@
 % \numberwithin{example}{section}
 % \numberwithin{equation}{section}
 
+% \mathtoolsset{showonlyrefs} % only display equation numbers for equations that are referenced to. https://tex.stackexchange.com/a/4729
+
 % ==============================
 \RequirePackage{mathtools} % incl. amsmath
 \RequirePackage{amssymb} % incl. amsfonts
 \RequirePackage{bbm}
 \RequirePackage{bm}
 \RequirePackage{xfrac}
+
+\newcommand{\lqedhere}{\ensuremath{\text{\qedhere\hspace{-1em}}}}
+\newcommand{\rqedhere}{\tag*{\hspace{-1em}\qedhere}}  % https://groups.google.com/g/comp.text.tex/c/hNqGXm3krSY
 
 \endinput

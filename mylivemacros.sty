@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{mylivemacros}
-	[2021/11/17 Guillaume Wang's macros to write quick and dirty latex]
+	[2023/06/12 Guillaume Wang's macros to write quick and dirty latex]
 
 \newif\ifshownotes
 \shownotestrue
@@ -14,9 +14,10 @@
 \newcommand{\brown}[1]{\textcolor{brown}{#1}}
 
 % collaborators' comments
-\newcommand{\kd}[1]{\ifshownotes\green{KD: #1}\else\fi}
-\newcommand{\gw}[1]{\ifshownotes\orange{GW: #1}\else\fi}
-\newcommand{\fy}[1]{\ifshownotes\brown{FY: #1}\else\fi}
+%\newcommand{\kd}[1]{\ifshownotes\green{KD: #1}\else\fi}
+%\newcommand{\gw}[1]{\ifshownotes\orange{GW: #1}\else\fi}
+%\newcommand{\fy}[1]{\ifshownotes\brown{FY: #1}\else\fi}
+%	--> (switch to per-project basis)
 
 % lightweight alternative to package todonotes
 \RequirePackage{xifthen}
@@ -75,15 +76,21 @@
 \newcommand{\ind}{\mathbbm{1}}
 \newcommand{\subjto}{~~\text{s.t}~~}
 \newcommand{\cst}{\mathrm{cst}}
-\newcommand{\indep}{\perp\!\!\!\!\perp}
+\newcommand{\indep}{\perp\!\!\!\!\perp} % https://tex.stackexchange.com/questions/79434/double-perpendicular-symbol-for-independence
 \newcommand{\bmzero}{{\bm{0}}}
 \newcommand{\bmone}{{\bm{1}}}
 \newcommand{\hotimes}{\widehat{\otimes}} % completion of tensor product space
-\newcommand{\rmold}{{\mathrm{old}}}
-\newcommand{\self}{{\mathrm{self}}}
 
-% \newcommand{\muchgt}{>\!\!>} % I discovered later that `\ll` and `gg` do the same, but I keep these for backward-compatibility
-% \newcommand{\muchlt}{<\!\!<}
+%\newcommand{\spectrum}{\sigma}
+\newcommand{\spectrum}{\mathrm{Sp}}
+\newcommand{\singvals}{\mathrm{Sing}}
+\newcommand{\relint}{\mathrm{relint}}
+\newcommand{\relinterior}{\mathrm{relint}}
+\newcommand{\interior}{\mathrm{int}}
+\newcommand{\diameter}{\mathrm{diam}}
+\newcommand{\Diag}{\mathrm{Diag}}
+\newcommand{\spmulti}{\mathrm{Sp}_{\mathrm{multi}}}
+
 
 % ==============================
 \newcommand{\AAA}{\mathcal{A}}
@@ -631,5 +638,28 @@
 \newcommand{\bpsi}{\bm{\psi}}
 \newcommand{\bomega}{\bm{\omega}}
 
+\newcommand{\tGamma}{\widetilde{\Gamma}}
+\newcommand{\tDelta}{\widetilde{\Delta}}
+\newcommand{\tTheta}{\widetilde{\Theta}}
+\newcommand{\tLambda}{\widetilde{\Lambda}}
+\newcommand{\tXi}{\widetilde{\Xi}}
+\newcommand{\tPi}{\widetilde{\Pi}}
+\newcommand{\tSigma}{\widetilde{\Sigma}}
+\newcommand{\tPhi}{\widetilde{\Phi}}
+\newcommand{\tChi}{\widetilde{\Chi}}
+\newcommand{\tPsi}{\widetilde{\Psi}}
+\newcommand{\tOmega}{\widetilde{\Omega}}
+
+\newcommand{\hGamma}{\widehat{\Gamma}}
+\newcommand{\hDelta}{\widehat{\Delta}}
+\newcommand{\hTheta}{\widehat{\Theta}}
+\newcommand{\hLambda}{\widehat{\Lambda}}
+\newcommand{\hXi}{\widehat{\Xi}}
+\newcommand{\hPi}{\widehat{\Pi}}
+\newcommand{\hSigma}{\widehat{\Sigma}}
+\newcommand{\hPhi}{\widehat{\Phi}}
+\newcommand{\hChi}{\widehat{\Chi}}
+\newcommand{\hPsi}{\widehat{\Psi}}
+\newcommand{\hOmega}{\widehat{\Omega}}
 
 \endinput
