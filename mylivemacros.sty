@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{mylivemacros}
-	[2023/06/12 Guillaume Wang's macros to write quick and dirty latex]
+	[2024/06/04 Guillaume Wang's macros to write quick and dirty latex]
 
 \newif\ifshownotes
 \shownotestrue
@@ -68,8 +68,11 @@
 
 \newcommand{\innerprod}[2]{\left\langle #1, #2 \right\rangle}
 \newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}} % function restriction
-\newcommand{\KLdiv}{D}
-% \newcommand{\KLdiv}[2]{D\left[ #1 \middle\| #2 \right]}
+% \newcommand{\KLdiv}{D}
+\newcommand{\KLdiv}[2]{D\left( #1 \middle\| #2 \right)}
+% \newcommand{\KLdiv}[2]{\mathrm{KL}\left( #1 \middle\| #2 \right)}
+\newcommand{\chisq}[2]{\chi^2\left( #1 \middle\| #2 \right)}
+\newcommand{\relFI}[2]{I\left( #1 \middle\| #2 \right)}
 
 \newcommand{\half}{{\sfrac{1}{2}}}
 \newcommand{\eps}{\varepsilon}
@@ -80,6 +83,8 @@
 \newcommand{\bmzero}{{\bm{0}}}
 \newcommand{\bmone}{{\bm{1}}}
 \newcommand{\hotimes}{\widehat{\otimes}} % completion of tensor product space
+\newcommand{\weakto}{\rightharpoonup}
+\newcommand{\poly}{\mathrm{poly}}
 
 %\newcommand{\spectrum}{\sigma}
 \newcommand{\spectrum}{\mathrm{Sp}}
@@ -90,10 +95,20 @@
 \newcommand{\diameter}{\mathrm{diam}}
 \newcommand{\Diag}{\mathrm{Diag}}
 \newcommand{\spmulti}{\mathrm{Sp}_{\mathrm{multi}}}
+\newcommand{\Eigvecs}{\mathrm{Eigvecs}}
+
+\renewcommand{\d}{\mathrm{d}}
+\renewcommand{\div}{\mathrm{div}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Hess}{\nabla^2}
+% \DeclareMathOperator{\Hess}{Hess}
 
 \newcommand{\lqedhere}{\ensuremath{\text{\qedhere\hspace{-1em}}}}
 \newcommand{\rqedhere}{\tag*{\hspace{-1em}\qedhere}}  % https://groups.google.com/g/comp.text.tex/c/hNqGXm3krSY
 
+% ==============================
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
 
 % ==============================
 \newcommand{\AAA}{\mathcal{A}}

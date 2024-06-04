@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{myquicksetup}
-    [2023/06/12 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
+    [2024/06/04 Guillaume Wang's basic imports and definitions to quickly start writing a math document]
 
 % ==============================
 \RequirePackage{amsthm}
@@ -55,30 +55,17 @@
 \aliascntresetthe{proposition}
 \aliascntresetthe{lemma}
 
-%\newcommand*{\definitionautorefname}{Def.}
-%\newcommand*{\assumptionautorefname}{Assum.}
-%\newcommand*{\exampleautorefname}{Example}
-%\newcommand*{\claimautorefname}{Claim}
-%\newcommand*{\factautorefname}{Fact}
-%\newcommand*{\conjectureautorefname}{Conj.}
-%\renewcommand*{\theoremautorefname}{Thm.}
-%\newcommand*{\corollaryautorefname}{Cor.}
-%\newcommand*{\propositionautorefname}{Prop.}
-%\newcommand*{\lemmaautorefname}{Lem.}
-%\newcommand*{\remarkautorefname}{Rem.}
-%\newcommand*{\questionautorefname}{Q.}
-
-\newcommand*{\definitionautorefname}{Definition}
+\newcommand*{\definitionautorefname}{Def.}
 \newcommand*{\assumptionautorefname}{Assumption}
 \newcommand*{\exampleautorefname}{Example}
 \newcommand*{\claimautorefname}{Claim}
 \newcommand*{\factautorefname}{Fact}
 \newcommand*{\conjectureautorefname}{Conjecture}
-\renewcommand*{\theoremautorefname}{Theorem}
-\newcommand*{\corollaryautorefname}{Corollary}
-\newcommand*{\propositionautorefname}{Proposition}
-\newcommand*{\lemmaautorefname}{Lemma}
-\newcommand*{\remarkautorefname}{Remark}
+\renewcommand*{\theoremautorefname}{Thm.}
+\newcommand*{\corollaryautorefname}{Coroll.}
+\newcommand*{\propositionautorefname}{Prop.}
+\newcommand*{\lemmaautorefname}{Lem.}
+\newcommand*{\remarkautorefname}{Rem.}
 \newcommand*{\questionautorefname}{Question}
 
 % \numberwithin{definition}{section}
@@ -100,5 +87,15 @@
 \RequirePackage{bbm}
 \RequirePackage{bm}
 \RequirePackage{xfrac}
+
+% ==============================
+\RequirePackage{centernot}
+\RequirePackage{tensor}
+\RequirePackage{makecell}
+\RequirePackage{thmtools}  % https://tex.stackexchange.com/questions/51286/recalling-a-theorem
+\RequirePackage{thm-restate}
+\RequirePackage{booktabs}       % professional-quality tables
+\RequirePackage{nicefrac}       % compact symbols for 1/2, etc.
+\RequirePackage{microtype}      % microtypography
 
 \endinput
