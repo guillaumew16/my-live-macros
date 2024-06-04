@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage[a4paper, margin=3cm, bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[french]{babel}
+
+\usepackage[
+    backend=biber,
+    style=alphabetic, maxalphanames=5, % write all initials, e.g "FBHW21" instead of "Foo+21"
+%    style=authoryear-comp,
+    maxbibnames=100, maxsortnames=100, % disable "et al." in \printbibliography
+    sorting=nyt,
+    natbib=true,
+    url=false,doi=false,isbn=false,eprint=false
+]{biblatex}
+\addbibresource{sample_longarticle.bib}
+% \addbibresource{references.bib}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{ {images/} }
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage[toc,page]{appendix}
+
+\usepackage[bookmarks, bookmarksnumbered,
+			colorlinks=true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = teal]{hyperref}
+\renewcommand*{\appendixautorefname}{App.}
+\renewcommand*{\sectionautorefname}{Sec.}
+\renewcommand*{\subsectionautorefname}{Sec.}
+\renewcommand*{\subsubsectionautorefname}{Sec.}
+\renewcommand*{\figureautorefname}{Fig.}
+\newcommand\fnsurl[1]{{\footnotesize\url{#1}}}
+
+\usepackage{myquicksetup}
+\numberwithin{definition}{section}
+\numberwithin{theorem}{section}
+\numberwithin{corollary}{section}
+\numberwithin{proposition}{section}
+\numberwithin{lemma}{section}
+\numberwithin{claim}{section}
+\numberwithin{fact}{section}
+\numberwithin{remark}{section}
+\numberwithin{example}{section}
+\numberwithin{equation}{section}
+\mathtoolsset{showonlyrefs} % only display equation numbers for equations that are referenced to. https://tex.stackexchange.com/a/4729
+
+\renewcommand*{\theoremautorefname}{Thm.}
+\renewcommand*{\propositionautorefname}{Prop.}
+\renewcommand*{\corollaryautorefname}{Coroll.}
+
+\usepackage{mylivemacros}
+%\shownotesfalse
+
+\usepackage{sample_longarticle} % project-specific macros
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\newif\ifextended  % extended version: include all appendices
+\extendedtrue
+% \extendedfalse
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Foo Bar}
+\date{\today}
+
+\author{Guillaume Wang}
+
+% \usepackage[affil-it]{authblk}
+% \author[1]{Guillaume Wang\footnote{Equal contribution.}}
+% \newcommand\CoAuthorMark{\footnotemark[\value{footnote}]} % get the current value. https://tex.stackexchange.com/a/173331
+% \author[1,2]{coauthor1\protect\CoAuthorMark}
+% \author[1]{coauthor2}
+% \affil[1]{affil1}
+% \affil[2]{affil2}
+
+% additional stuff for hyperref. Once the PDF is generated, you can check the metadata with `pdfinfo main.pdf`
+\hypersetup{
+    pdftitle={Foo Bar},
+    % pdfsubject={},
+    pdfauthor={Guillaume Wang},
+    pdfkeywords={%
+        Otto calculus
+    }
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\subfile{sections/abstract}
+\subfile{sections/1_intro}
+\subfile{sections/2_}
+\subfile{sections/3_}
+\subfile{sections/acknowledgments}
+
+
+
+% \newpage
+% \nocite{*}
+\printbibliography
+\addcontentsline{toc}{section}{\refname} % Add References to (ToC and) bookmarks
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifextended%
+    \newpage
+    \appendix
+    \phantomsection
+    % \addcontentsline{toc}{chapter}{APPENDIX}
+    \addcontentsline{toc}{section}{APPENDIX}
+
+    \section{Proofs}
+    
+    % \subfile{appendix/A_}
+    % \subfile{appendix/B_}
+\fi
+
+
+\end{document}
